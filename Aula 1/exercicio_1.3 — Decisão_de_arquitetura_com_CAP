@@ -1,0 +1,35 @@
+cenário
+
+
+
+Justificativa
+
+1. Saldo bancário de clientes
+
+CP
+
+O saldo precisa estar correto e atualizado para evitar operações com valores inconsistentes. É melhor ficar temporariamente indisponível do que permitir uma transação incorreta.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2. Recebimento de 500 mil eventos de firewall por minuto
+
+AP
+
+O SOC precisa continuar recebendo eventos mesmo durante falhas de comunicação. A disponibilidade é importante para não interromper o monitoramento.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3. Cache de tokens de sessão
+
+AP
+
+O cache precisa responder rapidamente para manter os usuários conectados. Em sessões comuns, uma pequena demora na sincronização pode ser tolerada, desde que existam controles de segurança.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+4. Registro de autorização de transferências
+
+CP
+
+É necessário garantir que o registro de quem autorizou cada transferência esteja correto. Dados inconsistentes poderiam comprometer a auditoria.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+5. Feed de indicadores de ameaça em cinco regiões
+
+AP
+
+Os indicadores precisam continuar disponíveis em todas as regiões. Uma pequena diferença temporária entre as cópias pode ser tolerada para manter o acesso às informações.
