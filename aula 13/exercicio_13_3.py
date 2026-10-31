@@ -185,3 +185,4 @@ Ela nao comprova que um LLM real obedeceria a injecao.
 caminho.write_text(relatorio, encoding="utf-8")
 
 print("\nRelatorio salvo:", caminho.name)
+
