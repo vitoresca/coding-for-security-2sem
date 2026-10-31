@@ -1,0 +1,7 @@
+=== Classificacao de logs ===
+[NORMAL] GET /index.html ip=192.168.1.10 status=200 -> Acesso sem sinais suspeitos nas regras (FALLBACK)
+[CRITICO] GET /../../etc/passwd ip=91.240.118.172 status=400 -> Possivel tentativa de path traversal (FALLBACK)
+[SUSPEITO] POST /login ip=185.220.101.1 status=401 (5x seguidas) -> Possivel ataque de brute force (FALLBACK)
+
+=== Resumo ===
+NORMAL: 1 | SUSPEITO: 1 | CRITICO: 1

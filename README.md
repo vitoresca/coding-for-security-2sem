@@ -146,3 +146,142 @@ Desenvolvi uma API Flask integrada ao MongoDB para cadastrar, listar, buscar, at
 Implementei a validação dos campos obrigatórios, conversão do ObjectId para JSON e tratamento de identificadores inválidos. As rotas foram testadas com a biblioteca requests.
 
 ![Resultado do exercício 7.1](Aula%207/resultado_7_1.png) 
+
+### Exercício 7.2 — Paginação e filtros
+
+Implementei paginação e filtros por severidade e status na API de incidentes com Flask e MongoDB. Cadastrei 15 incidentes e testei consultas individuais e combinadas, ordenando os resultados pela data de criação.
+
+Parâmetros aceitos na rota GET /api/incidentes:
+
+- pagina: número da página (padrão: 1).
+- tamanho: quantidade de registros por página (padrão: 10).
+- severidade: filtra os incidentes pela severidade.
+- status: filtra os incidentes pelo status.
+
+Os filtros podem ser combinados e a API retorna HTTP 400 para valores inválidos de paginação.
+
+![Resultado do exercício 7.2](Aula%207/resultado_7_2.png)
+
+### Exercício 7.3 — API de usuários com MySQL
+
+Desenvolvi uma API Flask integrada ao MySQL para cadastrar, listar, buscar, atualizar e remover usuários.
+
+Utilizei consultas parametrizadas e implementei tratamento de erros para e-mails duplicados (409), usuários inexistentes (404), dados inválidos (400) e falhas de conexão com o banco (500).
+
+![Resultado do exercício 7.3](Aula%207/resultado_7_3.png)
+
+### Exercício 8.1 — Dashboard com proteção contra XSS
+
+Criei um dashboard de alertas com Flask, utilizando um formulário HTML para cadastrar e visualizar alertas de segurança.
+
+Testei a proteção contra XSS cadastrando a descrição `<script>alert('xss')</script>`. O conteúdo foi exibido como texto na tabela, sem executar o código JavaScript, utilizando o escape automático do Jinja2.
+
+![Resultado do exercício 8.1](aula%208/resultado_8_1.png)
+
+### Exercício 8.2 — Login seguro com MySQL
+
+Desenvolvi uma API de login utilizando Flask e MySQL, com consultas parametrizadas e verificação de senhas por hash.
+
+Implementei validação dos campos, mensagens genéricas para credenciais inválidas e limite de tentativas de login. Os testes retornaram os códigos HTTP 200, 400, 401 e 429 conforme o esperado.
+
+![Resultado do exercício 8.2](aula%208/resultado_8_2.png)
+
+### Exercício 8.3 — Auditoria de código
+
+Identifiquei cinco vulnerabilidades em uma aplicação Flask, relacionando cada uma ao OWASP Top 10 e propondo medidas de correção.
+
+[Visualizar relatório de auditoria](aula%208/auditoria.md)
+
+### Exercício 10.1 — Consulta de CVEs no NVD
+
+Desenvolvi um programa em Python para consultar a API pública do NVD e obter informações de vulnerabilidades, incluindo descrição, pontuação CVSS e severidade.
+
+Utilizei a CVE-2021-44228 como teste, obtendo CVSS 10.0 e severidade crítica. Também implementei tratamento para CVEs inexistentes, falhas de requisição e timeout.
+
+![Resultado do exercício 10.1](Aula%2010/resultado_10_1.png)
+
+### Exercício 10.2 — Explorador da API do GitHub
+
+Desenvolvi um programa em Python com menu para consultar perfis e repositórios públicos por meio da API REST do GitHub.
+
+Implementei busca de usuários, listagem de repositórios com paginação, consulta detalhada e exportação dos resultados em JSON. Também adicionei tratamento para falhas de conexão, timeout e limites de requisições.
+
+![Resultado do exercício 10.2](Aula%2010/resultado_10_2.png)
+
+[Arquivo JSON gerado](Aula%2010/github_vitoresca.json)
+
+### Exercício 10.3 — Enriquecimento de IPs com cache
+
+Desenvolvi um programa em Python para consultar informações de IPs externos, identificar endereços de redes internas e evitar consultas repetidas por meio de cache.
+
+Implementei tratamento de rate limit com backoff e geração de relatório. Nos testes, foram realizadas 3 consultas HTTP, com 1 resultado recuperado do cache e 1 IP interno identificado.
+
+![Resultado do exercício 10.3](Aula%2010/resultado_10_3.png)
+
+[Relatório gerado](Aula%2010/relatorio_10_3.txt)
+
+### Exercício 12.1 — Pipeline de detecção com normalização
+
+Desenvolvi um Pipeline utilizando StandardScaler e RandomForestClassifier para classificar tráfego de rede como normal ou malicioso.
+
+Utilizei validação cruzada com 5 folds para avaliar o modelo, calculando a média da acurácia e o desvio padrão dos resultados.
+
+![Resultado do exercício 12.1](Aula%2012/resultado_12_1.png)
+
+
+### Exercício 12.2 — Torneio de algoritmos
+
+Comparei Random Forest, SVM e KNN utilizando validação cruzada com 5 folds. Os três modelos obtiveram acurácia média de 1.00.
+
+Como houve empate, selecionei o Random Forest pelo critério de desempate definido no programa. Depois utilizei GridSearchCV, que selecionou max_depth=None e n_estimators=50, mantendo a acurácia de 1.00.
+
+![Resultado do exercício 12.2](Aula%2012/resultado_12_2.png)
+
+### Exercício 12.3 — Persistência e integridade do modelo
+
+Treinei um modelo Random Forest com os melhores parâmetros encontrados no exercício anterior e salvei o resultado utilizando joblib.
+
+Calculei o hash SHA-256 do arquivo, armazenei o valor de referência e realizei uma nova verificação antes de carregar o modelo. Após confirmar a integridade, executei uma previsão de teste.
+
+![Resultado do exercício 12.3](Aula%2012/resultado_12_3.png)
+
+### Exercício 13.1 — Chatbot de Segurança
+
+Desenvolvi um chatbot em Python para responder perguntas sobre segurança da informação, mantendo o histórico da conversa para utilizar o contexto das mensagens anteriores.
+
+O programa permite encerrar a conversa com o comando `/sair` e possui tratamento de erros. Para os testes, utilizei o modo mock disponibilizado na apostila, simulando as respostas sem precisar de uma chave de API.
+
+**Resultado da execução:**
+
+![Resultado do exercício 13.1](Aula%2013/resultado_13_1.png)
+
+### Exercício 13.2 — Classificador automático de logs em lote
+
+Desenvolvi um classificador de logs de segurança em Python, com integração opcional à API da OpenAI e um sistema de fallback baseado em regras.
+
+O programa identificou um acesso normal, uma possível tentativa de path traversal e um evento suspeito de força bruta. Também gerou um relatório com a quantidade de eventos por classificação.
+
+**Resultado da execução:**
+
+![Resultado do exercício 13.2](Aula%2013/resultado_13_2.png)
+
+**Relatório gerado:**
+
+[Visualizar relatório de classificação](Aula%2013/relatorio_13_2.txt)
+
+
+### Exercício 13.3 — Demonstração de Prompt Injection
+
+Realizei uma demonstração de prompt injection utilizando um log de falha de login contendo uma instrução maliciosa para forçar a classificação NORMAL.
+
+No modo mock, o classificador sem proteção retornou NORMAL, enquanto a versão protegida identificou o evento como SUSPEITO.
+
+Implementei delimitação da entrada, validação dos rótulos permitidos e fallback por regras. Também gerei um relatório com os resultados dos testes.
+
+**Resultado da execução:**
+
+![Resultado do exercício 13.3](Aula%2013/resultado_13_3.png)
+
+**Relatório gerado:**
+
+[Visualizar relatório do exercício 13.3](Aula%2013/relatorio_13_3.txt)

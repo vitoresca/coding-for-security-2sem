@@ -1,0 +1,9 @@
+=== Enriquecimento de IPs ===
+8.8.8.8 -> Mountain View / US / AS15169 Google LLC (EXTERNO)
+1.1.1.1 -> Brisbane / AU / AS13335 Cloudflare, Inc. (EXTERNO)
+185.220.101.1 -> Berlin / DE / AS60729 Stiftung Erneuerbare Freiheit (EXTERNO, suspeito (lista local))
+192.168.1.10 -> Rede Interna (nao consultado)
+8.8.8.8 -> [CACHE] Mountain View / US / AS15169 Google LLC (EXTERNO)
+
+=== Resumo ===
+Consultas HTTP: 3 | Cache hits: 1 | Internos: 1

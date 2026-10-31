@@ -41,6 +41,7 @@ def buscar(id):
     return jsonify(serializar(documento)), 200
 
 
+
 @app.route("/api/incidentes", methods=["POST"])
 def cadastrar():
     dados = request.get_json(silent=True)
@@ -100,6 +101,7 @@ def atualizar(id):
 
     documento = incidentes.find_one({"_id": identificador})
     return jsonify(serializar(documento)), 200
+
 
 
 @app.route("/api/incidentes/<id>", methods=["DELETE"])
