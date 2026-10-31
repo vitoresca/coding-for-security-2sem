@@ -53,3 +53,4 @@ print(
     f"\nAcuracia: {scores.mean():.2f} "
     f"(+/- {scores.std():.2f})"
 )
+

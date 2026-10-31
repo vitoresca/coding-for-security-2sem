@@ -122,3 +122,5 @@ def remover(id):
 if __name__ == "__main__":
     client.admin.command("ping")
     app.run(port=5000, debug=False)
+
+    

@@ -140,3 +140,4 @@ while True:
 
     except (OSError, ValueError):
         print("Assistente: Erro de comunicacao ou configuracao.")
+

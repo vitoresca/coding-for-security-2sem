@@ -146,3 +146,5 @@ with open(arquivo, "w", encoding="utf-8") as relatorio:
     relatorio.write(resumo)
 
 print("\nRelatorio salvo em:", arquivo.name)
+
+
